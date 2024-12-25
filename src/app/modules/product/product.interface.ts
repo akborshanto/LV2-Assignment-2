@@ -9,5 +9,5 @@ export type Product ={
     type: 'Mountain' | 'Road' | 'Hybrid' | 'BMX' | 'Electric';
     description: string;
     quantity: number;
-    inStock: "stock" | "inStock";
+    inStock: boolean;
 }

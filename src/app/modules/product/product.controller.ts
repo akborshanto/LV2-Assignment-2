@@ -1,10 +1,19 @@
 import { Request, Response } from "express";
 import { ProductServices } from "./product.service";
+import productValidationSchema from "./product.validation";
+
 //create product
 const createProduct = async (req: Request, res: Response) => {
   try {
+
+
+
+
     const product = req.body;
-    const result = await ProductServices.createProductDb(product);
+    //data validation sunig zod
+const zodParsedData=productValidationSchema.parse(product)
+
+    const result = await ProductServices.createProductDb(zodParsedData);
 
     res.status(200).json({
       success: true,
@@ -93,7 +102,7 @@ const deleteProduct=async (req: Request, res: Response) => {
 
     res.status(200).send({
       status: true,
-      message: "Product deleted successfully",
+      message: "Bicycle deleted successfully",
       data: deleteProduct,
     });
 

@@ -1,5 +1,6 @@
 import mongoose, { Schema, model, connect } from "mongoose";
 import { Product } from "./product.interface";
+import { boolean } from "zod";
 
 // 2. Create a Schema corresponding to the document interface.
 const productSchema = new Schema<Product>(
@@ -15,8 +16,7 @@ const productSchema = new Schema<Product>(
     description: { type: String, required: true },
     quantity: { type: Number, required: true },
     inStock: {
-      type: String,
-      enum: ["stock", "inStock"],
+      type: Boolean, // Use Boolean type
       required: true,
     },
   },
