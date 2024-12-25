@@ -8,5 +8,6 @@ const productValidationSchema = z.object({
     description: z.string().min(1, "Description is required"),
     quantity: z.number().int().nonnegative("Quantity must be a non-negative integer"),
     inStock: z.boolean(),
+    isDeleted:z.boolean()
   });
   export default productValidationSchema

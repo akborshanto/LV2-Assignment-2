@@ -32,7 +32,7 @@ const updatedProductDB = async (
 //DELETE PRODUCT
 const deleteProductDB=async(productId:string)=>{
 
-const deleteProduct=await ProductModel.findByIdAndDelete(productId)
+const deleteProduct=await ProductModel.updateOne({productId},{isDeleted:true})
 return deleteProduct;
 }
 //tranaser controller file

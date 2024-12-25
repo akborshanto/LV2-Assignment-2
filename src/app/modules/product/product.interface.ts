@@ -10,4 +10,5 @@ export type Product ={
     description: string;
     quantity: number;
     inStock: boolean;
+    isDeleted:boolean
 }

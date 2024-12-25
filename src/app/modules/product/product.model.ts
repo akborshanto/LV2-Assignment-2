@@ -19,7 +19,16 @@ const productSchema = new Schema<Product>(
       type: Boolean, // Use Boolean type
       required: true,
     },
+  
+
+isDeleted:{
+  type:Boolean,
+  default:false,
+  
+}
+
   },
+  
   {
     timestamps: true, // Automatically adds `createdAt` and `updatedAt` fields
   }
