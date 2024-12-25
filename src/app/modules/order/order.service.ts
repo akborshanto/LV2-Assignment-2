@@ -57,7 +57,6 @@ const calculateTotalRevenue = async () => {
 
     return { totalRevenue: result[0].totalRevenue }; // Return total revenue
   } catch (error) {
-    console.error("Error calculating revenue:", error);
     throw new Error("Error calculating revenue");
   }
 };

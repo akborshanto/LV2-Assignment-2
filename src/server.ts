@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import app from './app';
-import config from './config';
+import config from './app/config';
 
 async function server() {
   try {
@@ -8,6 +8,7 @@ async function server() {
     console.log('Connected to MongoDB');
 
     app.listen(config.PORT, () => {
+ 
       console.log(`Server running on http://localhost:${config.PORT}`);
     });
   } catch (error) {

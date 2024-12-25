@@ -19,7 +19,7 @@ const createOrder = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    console.error(error);
+
     res.status(500).send({
       status: false,
       message: "Something went wrong",
@@ -39,7 +39,6 @@ const calculateRevenue = async (req: Request, res: Response) => {
       data: revenueData,
     });
   } catch (error) {
-    console.error(error);
     res.status(500).send({
       status: false,
       message: "Something went wrong",
