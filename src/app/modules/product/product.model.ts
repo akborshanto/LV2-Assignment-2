@@ -21,11 +21,11 @@ const productSchema = new Schema<Product>(
     },
   
 
-isDeleted:{
-  type:Boolean,
-  default:false,
+// isDeleted:{
+//   type:Boolean,
+//   default:false,
   
-}
+// }
 
   },
   

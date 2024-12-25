@@ -2,30 +2,38 @@ import { Request, Response } from "express";
 import { ProductServices } from "./product.service";
 import productValidationSchema from "./product.validation";
 
-//create product
+// Create product
 const createProduct = async (req: Request, res: Response) => {
   try {
-
-
-
-
+    // Get product data from request body
     const product = req.body;
-    //data validation sunig zod
-const zodParsedData=productValidationSchema.parse(product)
 
+    // Validate data using Zod
+    const zodParsedData = productValidationSchema.parse(product);
+
+    // If validation passes, proceed with creating the product
     const result = await ProductServices.createProductDb(zodParsedData);
 
-    res.status(200).json({
+    res.status(201).json({
       success: true,
-      message: "Bicycle created successfully",
+      message: "Product created successfully",
       data: result,
     });
   } catch (error) {
-    res.status(500).send({
-      status: false,
-      message: "Validation failed",
-      error:error
-    });
+    // If Zod validation fails, catch the error and return a meaningful response
+    if (error instanceof Error) {
+      res.status(400).json({
+        status: false,
+        message: "Validation failed",
+        error: error.message,  // Return the error message to the user
+      });
+    } else {
+      res.status(500).json({
+        status: false,
+        message: "Internal server error",
+        error: error,
+      });
+    }
   }
 };
 //get all products
