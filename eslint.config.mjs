@@ -3,21 +3,23 @@ import pluginJs from '@eslint/js'
 import tseslint from 'typescript-eslint'
 import eslintConfigPrettier from 'eslint-config-prettier'
 
-/** @type {import('eslint').Linter.Config[]} */
-export default [
-  { files: ['**/*.{js,mjs,cjs,ts}'] },
-  { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
-  {
-    ignores: ['node_modules', 'dist'],
-    rules: {
-      'no-unused-vars': 'error',
-      'no-undef': 'error',
-      'no-unused-expressions': 'error',
-      'prefer-const': 'error',
-      'no-console': 'warn',
-    },
+import eslint from "@eslint/js";
+import tseslint from "@typescript-eslint/eslint-plugin";
+
+export default {
+  root: true,
+  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint"],
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  rules: {
+    "no-unused-vars": "error",
+    "no-undef": "error",
+    "prefer-const": "error",
+    "no-console": "warn"
   },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-  eslintConfigPrettier,
-]
+  ignorePatterns: ["dist", "node_modules"]
+};nfigPrettier
+

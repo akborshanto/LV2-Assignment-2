@@ -8,13 +8,13 @@ const createProduct = async (req: Request, res: Response) => {
 
     res.status(200).json({
       success: true,
-      message: "Product created successfully",
+      message: "Bicycle created successfully",
       data: result,
     });
   } catch (error) {
     res.status(500).send({
       status: false,
-      message: "Something went wrong",
+      message: "Validation failed",
       error:error
     });
   }
@@ -27,7 +27,7 @@ const products=await ProductServices.getProductDb()
 
     res.send({
       status: true,
-      message: "THIS IS GET PRODUCT",
+      message: "Bicycles retrieved successfully",
       data:products
     });
   } catch (error) {
@@ -44,11 +44,11 @@ const getSingleProduct=async(req: Request, res: Response) =>{
 
   try {
     
-const {id}=req.params;
-const product=await ProductServices.getSingleProductDB(id)
+const {productId}=req.params;
+const product=await ProductServices.getSingleProductDB(productId)
 res.status(200).send({
   status: true,
-  message: "Product fetched successfully",
+  message: "Bicycle retrieved successfully",
   data: product,
 });
   } catch (error) {
@@ -69,7 +69,7 @@ const updateData=req.body;
 const updatedProduct=await ProductServices.updatedProductDB(productId,updateData)
 res.status(200).send({
   status: true,
-  message: "Product updated successfully",
+  message: "Bicycle updated successfully",
   data: updatedProduct,
 });
 } catch (error) {

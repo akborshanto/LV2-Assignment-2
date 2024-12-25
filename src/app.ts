@@ -11,7 +11,7 @@ app.use(cors());
 
 // Routes
 //application routers
-app.use('/api/v1/product',ProductRoutes)
+app.use('/api/products',ProductRoutes)
 //order controller
 app.use('/api/orders',OrderRoutes)
 
